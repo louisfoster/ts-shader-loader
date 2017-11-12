@@ -15,6 +15,7 @@ npm-debug.log
 
 # dist
 /dist
+/dist-es
 
 # config
 .env

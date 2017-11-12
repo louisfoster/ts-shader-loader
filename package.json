@@ -3,10 +3,13 @@
   "version": "1.0.1",
   "description": "A webpack loader for glsl shaders - includes support for nested imports.",
   "main": "dist/loader.js",
+  "typings": "lib/loader.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "npm run build:packages-cjs && npm run build:packages-es",
+    "build:packages-cjs": "tsc --module commonjs --outDir dist --target es5",
+    "build:packages-es": "tsc",
     "test": "npm run build && jest",
-    "postinstall": "tsc"
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
