@@ -1,19 +1,18 @@
 {
-  "name": "webpack-glsl-loader",
-  "version": "1.0.1",
-  "description": "A webpack loader for glsl shaders - includes support for nested imports.",
+  "name": "ts-shader-loader",
+  "version": "1.0.0",
+  "description": "A webpack loader for glsl shaders - includes support for nested imports. Re-Written in TypeScript",
   "main": "dist/loader.js",
   "typings": "lib/loader.d.ts",
   "scripts": {
-    "build": "npm run build:packages-cjs && npm run build:packages-es",
-    "build:packages-cjs": "tsc --module commonjs --outDir dist --target es5",
-    "build:packages-es": "tsc",
     "test": "npm run build && jest",
-    "postinstall": "npm run build"
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mentos1836/webpack-glsl-loader.git"
+    "url": "https://github.com/mentos1836/ts-shader-loader.git"
   },
   "keywords": [
     "glsl",
@@ -27,9 +26,9 @@
   "author": "Tine Jozelj <mentos1386@tjo.space> (https://blog.tjo.space)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mentos1386/webpack-glsl-loader/issues"
+    "url": "https://github.com/mentos1386/ts-shader-loader/issues"
   },
-  "homepage": "https://github.com/mentos1386/webpack-glsl-loader#readme",
+  "homepage": "https://github.com/mentos1386/ts-shader-loader#readme",
   "jest": {
     "moduleFileExtensions": [
       "ts",

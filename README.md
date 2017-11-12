@@ -7,30 +7,20 @@ The shader is returned as a string.
 ## Install
 
 ```shell
-npm install --save-dev webpack-glsl-loader
+npm install --save-dev ts-shader-loader
 ```
 
 ## Usage
 
-### With `require`
-
-> **N.B.** As noted in the [webpack documentation](
-http://webpack.github.io/docs/using-loaders.html#loaders-in-require), you
-should avoid using this and use the configuration method in the next section.
-
-```javascript
-require('webpack-glsl!./my-lovely-shader.glsl');
-```
-
-### In configuration
+## In configuration
 
 ```javascript
 {
     module: {
         loaders: [
             {
-                test: /\.glsl$/,
-                loader: 'webpack-glsl'
+                test: /\.(glsl|vs|fs)$/,
+                loader: 'ts-shader-loader'
             }
         ]
     }
@@ -40,17 +30,9 @@ require('webpack-glsl!./my-lovely-shader.glsl');
 and then
 
 ```javascript
-require('./my-lovely-shader.glsl');
+import * as myLovleyShaderGlsl from './myLovelyShader.glsl');
 ```
 
-### On command line
-
-You can also define the module extension bind on the command line if you are
-not using a configuration file (you probably should be though).
-
-```shell
-webpack --module-bind 'glsl=webpack-glsl'
-```
 
 ## Imports
 
@@ -64,9 +46,9 @@ very similar to that of SASS.
 Example project structure:
 ```
 src/
----- js/
----- ---- main.js
----- glsl/
+---- ts/
+---- ---- main.ts
+---- shaders/
 ---- ---- includes/
 ---- ---- ---- perlin-noise.glsl
 ---- ---- fragment.glsl
@@ -75,7 +57,7 @@ src/
 If I require my fragment shader inside `main.js`:
 
 ```javascript
-var shader = require('../glsl/fragment.glsl');
+import * as shader from '../shaders/fragment.glsl');
 ```
 
 I can have that shader include other `.glsl` files inline, like so:
@@ -99,5 +81,3 @@ contiguous file before raising an issue.
 ## TODO
 
 + Deduplicate imports, to prevent code clobbering and conflicts at runtime
-+ Make loader file extension agnostic, to allow for you odd people who use
-other extensions like `.vert` and `.frag`.
