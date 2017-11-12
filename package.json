@@ -1,14 +1,13 @@
 {
   "name": "ts-shader-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A webpack loader for glsl shaders - includes support for nested imports. Re-Written in TypeScript",
-  "main": "dist/loader.js",
+  "main": "lib/loader.ts",
   "typings": "lib/loader.d.ts",
   "scripts": {
-    "test": "npm run build && jest",
-    "build": "tsc",
-    "clean": "rm -rf dist",
-    "prepublishOnly": "npm run clean && npm run build"
+    "test": "jest",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "prepublishOnly": "npm run test"
   },
   "repository": {
     "type": "git",
@@ -45,10 +44,10 @@
     "@types/loader-utils": "^1.1.0",
     "@types/node": "^8.0.51",
     "loader-utils": "^1.1.0",
-    "tsc": "^1.20150623.0",
     "typescript": "^2.6.1"
   },
   "devDependencies": {
+    "tsc": "^1.20150623.0",
     "ts-jest": "^21.2.1",
     "jest": "^21.2.1",
     "memory-fs": "^0.4.1",

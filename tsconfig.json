@@ -13,9 +13,6 @@
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
     "outDir": "dist",
-    "typeRoots": [
-      "lib/"
-    ],
   },
   "include": [
     "lib/**/*"
