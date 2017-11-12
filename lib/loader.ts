@@ -1,13 +1,13 @@
-'use strict';
+import * as fs from 'fs';
+import * as path from 'path';
+import { getOptions } from 'loader-utils';
 
-var fs = require('fs');
-var path = require('path');
-
+const name = 'webpack-glsl-loader';
 
 function parse(loader, source, context, cb) {
-    var imports = [];
-    var importPattern = /@import ([.\/\w_-]+);/gi;
-    var match = importPattern.exec(source);
+    const imports = [];
+    const importPattern = /@import ([.\/\w_-]+);/gi;
+    let match = importPattern.exec(source);
 
     while (match != null) {
         imports.push({
@@ -51,14 +51,16 @@ function processImports(loader, source, context, imports, cb) {
     });
 }
 
-module.exports = function(source) {
+export default function(source) {
     this.cacheable();
-    var cb = this.async();
-    parse(this, source, this.context, function(err, bld) {
-        if (err) {
-            return cb(err);
-        }
+    const cb = this.async();
 
-        cb(null, 'module.exports = ' + JSON.stringify(bld));
+    // const options = getOptions(this);
+    // validateOptions(schema, options, name)
+    
+    parse(this, source, this.context, function(err, bld) {
+        if (err) return cb(err);
+
+        cb(null, `export default ${JSON.stringify(bld)}`);
     });
-};
+}
