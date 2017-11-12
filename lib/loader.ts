@@ -54,9 +54,6 @@ function processImports(loader, source, context, imports, cb) {
 export default function(source) {
     this.cacheable();
     const cb = this.async();
-
-    // const options = getOptions(this);
-    // validateOptions(schema, options, name)
     
     parse(this, source, this.context, function(err, bld) {
         if (err) return cb(err);
