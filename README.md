@@ -4,6 +4,10 @@ A glsl shader loader for webpack, includes support for nested imports,
 allowing for smart code reuse among more complex shader implementations. 
 The shader is returned as a string.
 
+## Why fork
+
+I had a problem using other webpack shader loaders with typescript. While i was investigating what is the problem, i forked and tried to make my version work with typescript. Other than support with typescript, it has no other benefits.
+
 ## Install
 
 ```shell
