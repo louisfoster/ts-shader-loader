@@ -44,6 +44,7 @@
   "devDependencies": {
     "@types/jest": "^21.1.6",
     "@types/loader-utils": "^1.1.0",
+    "@types/node": "^8.0.51",
     "jest": "^21.2.1",
     "loader-utils": "^1.1.0",
     "memory-fs": "^0.4.1",
