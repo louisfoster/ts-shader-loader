@@ -14,7 +14,7 @@ export default (fixture, options = {}) => {
       rules: [{
         test: /\.(glsl|vs|fs)$/,
         use: {
-          loader: path.resolve(__dirname, '../lib/loader.ts'),
+          loader: path.resolve(__dirname, '../lib/index.ts'),
         }
       }]
     }
