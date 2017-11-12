@@ -41,19 +41,20 @@
     },
     "testRegex": "/*/*.spec.ts"
   },
-  "devDependencies": {
+  "dependencies": {
     "@types/jest": "^21.1.6",
     "@types/loader-utils": "^1.1.0",
     "@types/node": "^8.0.51",
-    "jest": "^21.2.1",
     "loader-utils": "^1.1.0",
-    "memory-fs": "^0.4.1",
-    "ts-jest": "^21.2.1",
     "tsc": "^1.20150623.0",
+    "typescript": "^2.6.1"
+  },
+  "devDependencies": {
+    "ts-jest": "^21.2.1",
+    "jest": "^21.2.1",
+    "memory-fs": "^0.4.1",
     "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.3.0",
-    "typescript": "^2.6.1",
     "webpack": "^3.8.1"
-  },
-  "dependencies": {}
+  }
 }
