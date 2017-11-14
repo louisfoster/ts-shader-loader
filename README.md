@@ -1,4 +1,5 @@
 # Webpack loader for GLSL shaders
+[![NPM](https://nodei.co/npm/ts-shader-loader.png)](https://npmjs.org/package/ts-shader-loader)
 
 A glsl shader loader for webpack, includes support for nested imports, 
 allowing for smart code reuse among more complex shader implementations. 
@@ -34,7 +35,7 @@ npm install --save-dev ts-shader-loader
 and then
 
 ```javascript
-import * as myLovleyShaderGlsl from './myLovelyShader.glsl');
+import myLovleyShaderGlsl from './myLovelyShader.glsl');
 ```
 
 
@@ -61,7 +62,7 @@ src/
 If I require my fragment shader inside `main.js`:
 
 ```javascript
-import * as shader from '../shaders/fragment.glsl');
+import shader from '../shaders/fragment.glsl');
 ```
 
 I can have that shader include other `.glsl` files inline, like so:
